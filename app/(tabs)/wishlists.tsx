@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 
-const ExplorePage = () => {
+const WishListspage = () => {
   return (
     <View>
-      <Text>ExplorePage</Text>
+      <Text>WishListspage</Text>
     </View>
   );
 };
 
-export default ExplorePage;
+export default WishListspage;

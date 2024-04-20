@@ -1,15 +1,7 @@
 import { Listing } from '@/interfaces/listing';
-import { Link } from 'expo-router';
 import { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  ListRenderItem,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import { View, FlatList, ListRenderItem } from 'react-native';
+import ListingItem from './ListingItem';
 
 interface Props {
   listings: any[];
@@ -28,15 +20,7 @@ const Listings = ({ listings: items, category }: Props) => {
   }, [category]);
 
   const renderRow: ListRenderItem<Listing> = ({ item }) => {
-    return (
-      <Link href={`/listing/${item.id}`} asChild>
-        <TouchableOpacity>
-          <View style={styles.listing}>
-            <Image source={{ uri: item.medium_url }} style={styles.image} />
-          </View>
-        </TouchableOpacity>
-      </Link>
-    );
+    return <ListingItem item={item} />;
   };
 
   return (
@@ -52,14 +36,3 @@ const Listings = ({ listings: items, category }: Props) => {
 };
 
 export default Listings;
-
-const styles = StyleSheet.create({
-  listing: {
-    padding: 16,
-  },
-  image: {
-    width: '100%',
-    height: 300,
-    borderRadius: 10,
-  },
-});

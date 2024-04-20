@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Stack } from 'expo-router';
 
 import ExploreHeader from '@/components/ExploreHeader';
-import Listings from '@/components/Listings';
+import Listings from '@/components/listings/Listings';
 
 import listingData from '@/assets/data/airbnb-listings.json';
 

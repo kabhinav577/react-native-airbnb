@@ -42,4 +42,10 @@ export const defaultStyles = StyleSheet.create({
     borderTopColor: Colors.grey,
     borderTopWidth: StyleSheet.hairlineWidth,
   },
+  info: {
+    textAlign: 'center',
+    fontFamily: 'nunito-semibold',
+    fontSize: 16,
+    marginTop: 4,
+  },
 });

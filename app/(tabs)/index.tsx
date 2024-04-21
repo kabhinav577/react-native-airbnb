@@ -2,19 +2,24 @@ import { useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { Stack } from 'expo-router';
 
-import ExploreHeader from '@/components/ExploreHeader';
 import Listings from '@/components/listings/Listings';
+import ExploreHeader from '@/components/ExploreHeader';
+import ListingsMap from '@/components/listings/ListingsMap';
 
 import listingData from '@/assets/data/airbnb-listings.json';
+import listingGeoData from '@/assets/data/airbnb-listings.geo.json';
 
 const Page = () => {
   const [category, setCategory] = useState('Tiny homes');
 
   const items = useMemo(() => listingData as any, []);
 
+  const geoItems = useMemo(() => listingGeoData as any, []);
+
   const onDataChanged = (category: string) => {
     setCategory(category);
   };
+
   return (
     <View
       style={{
@@ -27,7 +32,8 @@ const Page = () => {
           header: () => <ExploreHeader onCategoryChanged={onDataChanged} />,
         }}
       />
-      <Listings listings={items} category={category} />
+      {/* <Listings listings={items} category={category} /> */}
+      <ListingsMap listings={geoItems} />
     </View>
   );
 };

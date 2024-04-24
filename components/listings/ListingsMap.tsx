@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { View, Text, StyleSheet } from 'react-native';
 import { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapView from 'react-native-map-clustering';
+import { memo } from 'react';
 
 interface Props {
   listings: any;
@@ -15,7 +16,7 @@ const INITIAL_REGION = {
   longitudeDelta: 9,
 };
 
-const ListingsMap = ({ listings }: Props) => {
+const ListingsMap = memo(({ listings }: Props) => {
   const router = useRouter();
   const onMarkerSelected = (item: ListingGeo) => {
     router.push(`/listing/${item.properties.id}`);
@@ -83,7 +84,7 @@ const ListingsMap = ({ listings }: Props) => {
       </MapView>
     </View>
   );
-};
+});
 
 export default ListingsMap;
 

@@ -1,9 +1,9 @@
-import { ListingGeo } from '@/interfaces/listingGeo';
+import { memo } from 'react';
 import { useRouter } from 'expo-router';
+import MapView from 'react-native-map-clustering';
+import { ListingGeo } from '@/interfaces/listingGeo';
 import { View, Text, StyleSheet } from 'react-native';
 import { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import MapView from 'react-native-map-clustering';
-import { memo } from 'react';
 
 interface Props {
   listings: any;

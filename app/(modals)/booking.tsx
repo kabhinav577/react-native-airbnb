@@ -12,6 +12,8 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Colors from '@/constants/Colors';
 import { defaultStyles } from '@/constants/Styles';
 import LocationFilter from '@/components/bookingFilter/LocationFilter';
+import DateTimeFilter from '@/components/bookingFilter/DateTimeFilter';
+import GuestsFilter from '@/components/bookingFilter/GuestsFilter';
 
 const AnimatedTouchableOpacity =
   Animated.createAnimatedComponent(TouchableOpacity);
@@ -29,7 +31,6 @@ const BookingModal = () => {
   return (
     <BlurView intensity={70} style={styles.container} tint="light">
       {/* Where  */}
-      {/* When  */}
       <View style={styles.card}>
         {openCard !== 0 && (
           <AnimatedTouchableOpacity
@@ -50,7 +51,6 @@ const BookingModal = () => {
       </View>
 
       {/* When  */}
-      {/* Where */}
       <View style={styles.card}>
         {openCard !== 1 && (
           <AnimatedTouchableOpacity
@@ -62,18 +62,10 @@ const BookingModal = () => {
           </AnimatedTouchableOpacity>
         )}
 
-        {openCard === 1 && (
-          <>
-            <Animated.Text style={styles.cardHeader} entering={FadeIn}>
-              When's your trip?
-            </Animated.Text>
-            <Animated.View style={styles.cardBody}></Animated.View>
-          </>
-        )}
+        {openCard === 1 && <DateTimeFilter />}
       </View>
 
       {/* Who  */}
-      {/* Where */}
       <View style={styles.card}>
         {openCard !== 2 && (
           <AnimatedTouchableOpacity
@@ -87,14 +79,7 @@ const BookingModal = () => {
           </AnimatedTouchableOpacity>
         )}
 
-        {openCard === 2 && (
-          <>
-            <Animated.Text style={styles.cardHeader} entering={FadeIn}>
-              Who's coming?
-            </Animated.Text>
-            <Animated.View style={styles.cardBody}></Animated.View>
-          </>
-        )}
+        {openCard === 2 && <GuestsFilter />}
       </View>
 
       {/* Footer */}
@@ -175,34 +160,5 @@ const styles = StyleSheet.create({
     fontFamily: 'nunito-semibold',
     fontSize: 14,
     color: Colors.dark,
-  },
-  cardHeader: {
-    fontFamily: 'nunito-bold',
-    fontSize: 24,
-    padding: 20,
-  },
-  cardBody: {
-    padding: 20,
-  },
-  searchSection: {
-    height: 50,
-    flexDirection: 'row',
-    borderWidth: 1,
-    borderColor: Colors.grey,
-    borderRadius: 8,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    alignContent: 'center',
-    marginBottom: 16,
-  },
-  inputField: {
-    flex: 1,
-    padding: 10,
-    backgroundColor: '#fff',
-  },
-  searchIcon: {
-    padding: 10,
-    fontSize: 24,
-    color: Colors.grey,
   },
 });
